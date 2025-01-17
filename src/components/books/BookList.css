@@ -1,0 +1,292 @@
+/* Modern color palette and variables */
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #8b5cf6;
+  --accent: #f59e0b;
+  --background: #f8fafc;
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+.book-list-container {
+  padding: 2rem;
+  background-color: var(--background);
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  margin-top: 30px;
+}
+
+.book-list-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.book-list-header h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.book-list-controls {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 280px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: var(--card-bg);
+}
+
+.search-box input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
+
+.sort-box select {
+  padding: 0.875rem 2.5rem 0.875rem 1.25rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: var(--card-bg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236366f1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.sort-box select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.book-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 4px 6px var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border);
+}
+
+.book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.book-image {
+  position: relative;
+  height: 500px; /* Tăng chiều cao để hiển thị đầy đủ ảnh */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8fafc;
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Đảm bảo hình ảnh hiển thị đầy đủ */
+  padding: 1rem;
+  transition: transform 0.5s ease;
+}
+
+.book-card:hover .book-image img {
+  transform: scale(1.05);
+}
+
+.book-info {
+  padding: 1.5rem;
+}
+
+.book-info h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.book-details {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.925rem;
+}
+
+.detail-row .label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.detail-row .value {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.availability-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  text-align: center; /* Căn giữa văn bản */
+}
+
+.availability-badge.available {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.availability-badge.limited {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+.availability-badge.unavailable {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.book-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-top: 1px solid var(--border);
+  background-color: var(--card-bg); /* Đảm bảo màu nền đồng nhất */
+}
+
+.book-actions button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  font-size: 0.925rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.view-details-btn {
+  background-color: var(--secondary); /* Đổi màu nút "Xem chi tiết" */
+  color: white;
+}
+
+.view-details-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.admin-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.edit-btn {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #d97706;
+}
+
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
+
+.add-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+.add-book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.no-results {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  padding: 3rem;
+  grid-column: 1 / -1;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  padding: 3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .book-list-container {
+    padding: 1rem;
+  }
+  
+  .book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .book-list-header h2 {
+    font-size: 2rem;
+  }
+  
+  .book-image {
+    height: 380px;
+  }
+}

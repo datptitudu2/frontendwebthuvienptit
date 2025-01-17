@@ -1,0 +1,187 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --font-family: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.rules-container {
+    max-width: 1200px;
+    margin-top:100px;
+    
+    padding: 0 1rem;
+}
+
+.rules-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.rules-header h2 {
+    font-size: 2rem;
+    color: var(--dark-color);
+}
+
+.add-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-button:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+.rules-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.rule-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.rule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.rule-content {
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.rule-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, var(--primary-color), var(--success-color), var(--warning-color));
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+.rule-card:hover .rule-content::before {
+    left: 100%;
+}
+
+.rule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.rule-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    position: relative;
+    z-index: 1;
+}
+
+.rule-actions {
+    display: flex;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.edit-button,
+.delete-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.edit-button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.delete-button {
+    background: var(--danger-color);
+}
+
+.delete-button:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+.rule-value {
+    margin: 1rem 0;
+    color: #666;
+    position: relative;
+    z-index: 1;
+    white-space: pre-line; /* Preserve line breaks and spaces */
+}
+
+.rule-description {
+    font-size: 0.875rem;
+    color: #666;
+    position: relative;
+    z-index: 1;
+    white-space: pre-line; /* Preserve line breaks and spaces */
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--secondary-color);
+    padding: 3rem;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 2rem;
+}
+
+.back-button:hover {
+    background: #5a6268;
+}

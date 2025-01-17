@@ -1,0 +1,100 @@
+.penalties-container {
+  max-width: 800px;
+  margin-top:100px;
+  margin-left:360px;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.penalties-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.penalties-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.penalty-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.penalty-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.penalty-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.penalty-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.status.paid {
+  background: #28a745;
+  color: white;
+}
+
+.status.unpaid {
+  background: #dc3545;
+  color: white;
+}
+
+.reason {
+  color: #666;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.penalty-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.amount {
+  font-weight: bold;
+  color: #dc3545;
+  font-size: 1.1rem;
+}
+
+.date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.loading {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+.no-penalties {
+  text-align: center;
+  color: #666;
+  font-size: 1.2rem;
+}
