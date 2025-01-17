@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/news';
+const API_URL = 'https://thuvienptit-5.onrender.com/api/news';
 
 const getAuthHeader = () => {
   const user = JSON.parse(localStorage.getItem('user'));
