@@ -369,7 +369,10 @@ const BookDetail = () => {
     options={pdfOptions}
   />
 </div>
+              <div>
+              <Document>
                 {numPages && (
+                  
                   <Page 
                     pageNumber={pageNumber} 
                     width={Math.min(600, window.innerWidth - 32)}
@@ -403,6 +406,7 @@ const BookDetail = () => {
         </div>
       )}
     </div>
+    
   );
 };
 
