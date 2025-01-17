@@ -80,7 +80,7 @@ const NewsDetail = () => {
         {news.event_image_url && (
           <div className="event-image">
             <img 
-              src={`http://localhost:5000${news.event_image_url}`} 
+              src={`https://khongbugptit.onrender.com${news.event_image_url}`} 
               alt="Event"
               onError={(e) => {
                 e.target.onerror = null;

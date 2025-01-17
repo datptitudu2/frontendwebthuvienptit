@@ -160,7 +160,7 @@ const BookList = () => {
             <div key={book.id} className="book-card">
               <div className="book-image">
                 <img 
-                  src={book.image_url ? `http://localhost:5000${book.image_url}` : '/default-book.png'}
+                  src={book.image_url ? `https://khongbugptit.onrender.com${book.image_url}` : '/default-book.png'}
                   alt={book.title}
                   onError={(e) => {
                     e.target.onerror = null;

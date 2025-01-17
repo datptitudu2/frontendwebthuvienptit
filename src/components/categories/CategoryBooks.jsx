@@ -62,7 +62,7 @@ const CategoryBooks = () => {
                     books.map(book => (
                         <Link to={`/books/${book.id}`} key={book.id} className="book-card">
                             <img 
-                                src={`http://localhost:5000${book.image_url}`} 
+                                src={`https://khongbugptit.onrender.com${book.image_url}`} 
                                 alt={book.title}
                                 onError={(e) => {
                                     e.target.src = '/placeholder-book.png'; // Thêm ảnh placeholder

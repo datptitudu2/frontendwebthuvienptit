@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://thuvienptit-5.onrender.com/api/auth/';
+const API_URL = 'https://khongbugptit.onrender.com/api/auth/';
 
 const register = async (email, phone, password, full_name) => {
   const response = await axios.post(API_URL + 'register', {

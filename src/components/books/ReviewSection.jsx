@@ -162,14 +162,14 @@ const ReviewSection = ({ bookId }) => {
               <div className="user-info">
                 <img 
                   src={review.user_avatar ? 
-                    `http://localhost:5000${review.user_avatar}` : 
-                    `http://localhost:5000/uploads/avatars/default-avatar.jpg`
+                    `https://khongbugptit.onrender.com${review.user_avatar}` : 
+                    `https://khongbugptit.onrender.com/uploads/avatars/default-avatar.jpg`
                   } 
                   alt="User avatar" 
                   className="user-avatar"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = `http://localhost:5000/uploads/avatars/default-avatar.jpg`;
+                    e.target.src = `https://khongbugptit.onrender.com/uploads/avatars/default-avatar.jpg`;
                   }}
                 />
                 <div className="user-review-info">

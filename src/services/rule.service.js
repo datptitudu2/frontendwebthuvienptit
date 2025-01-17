@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://thuvienptit-5.onrender.com/api/rules';
+const API_URL = 'https://khongbugptit.onrender.com/api/rules';
 
 const getAuthHeader = () => {
   const user = JSON.parse(localStorage.getItem('user'));

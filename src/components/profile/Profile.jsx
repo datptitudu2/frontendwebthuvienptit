@@ -139,9 +139,9 @@ const Profile = () => {
   };
 
   const getAvatarUrl = (avatarPath) => {
-    if (!avatarPath) return `http://localhost:5000/uploads/avatars/default-avatar.jpg`;
+    if (!avatarPath) return `https://khongbugptit.onrender.com/uploads/avatars/default-avatar.jpg`;
     if (avatarPath.startsWith('http')) return avatarPath;
-    return `http://localhost:5000${avatarPath}`;
+    return `https://khongbugptit.onrender.com${avatarPath}`;
   };
 
   const handleAvatarChange = async (e) => {
@@ -233,8 +233,8 @@ const Profile = () => {
               alt="Avatar" 
               className="avatar-image"
               onError={(e) => {
-                if (e.target.src !== `http://localhost:5000/uploads/avatars/default-avatar.jpg`) {
-                  e.target.src = `http://localhost:5000/uploads/avatars/default-avatar.jpg`;
+                if (e.target.src !== `https://khongbugptit.onrender.com/uploads/avatars/default-avatar.jpg`) {
+                  e.target.src = `https://khongbugptit.onrender.com/uploads/avatars/default-avatar.jpg`;
                 }
               }}
             />
@@ -251,23 +251,23 @@ const Profile = () => {
         </div>
 
         <div className="profile-section">
-          <h3>Thông tin cá nhân</h3>
+          <h3>Profile Information</h3>
           {!isEditing ? (
             <div className="profile-info">
-              <p><strong>Họ và tên:</strong> {profile?.full_name}</p>
+              <p><strong>Full Name:</strong> {profile?.full_name}</p>
               <p><strong>Email:</strong> {profile?.email}</p>
-              <p><strong>Số điện thoại:</strong> {profile?.phone || 'Not set'}</p>
-              <p><strong>Vai trò:</strong> {profile?.role}</p>
-              <p><strong>Thành viên từ:</strong> {new Date(profile?.created_at).toLocaleDateString()}</p>
+              <p><strong>Phone:</strong> {profile?.phone || 'Not set'}</p>
+              <p><strong>Role:</strong> {profile?.role}</p>
+              <p><strong>Member Since:</strong> {new Date(profile?.created_at).toLocaleDateString()}</p>
               
               <button className="edit-button" onClick={() => setIsEditing(true)}>
-                <FaEdit /> Chỉnh sửa thông tin
+                <FaEdit /> Edit Profile
               </button>
             </div>
           ) : (
             <form onSubmit={handleEditSubmit} className="edit-form">
               <div className="form-group">
-                <label>Họ và Tên</label>
+                <label>Full Name</label>
                 <input
                   type="text"
                   value={editForm.full_name}
@@ -276,7 +276,7 @@ const Profile = () => {
               </div>
 
               <div className="form-group">
-                <label>Số điện thoại</label>
+                <label>Phone</label>
                 <input
                   type="text"
                   value={editForm.phone}
@@ -286,10 +286,10 @@ const Profile = () => {
 
               <div className="form-actions">
                 <button type="button" className="cancel-button" onClick={() => setIsEditing(false)}>
-                  Hủy
+                  Cancel
                 </button>
                 <button type="submit" className="save-button">
-                  <FaSave /> Lưu thay đổi
+                  <FaSave /> Save Changes
                 </button>
               </div>
             </form>
@@ -297,18 +297,18 @@ const Profile = () => {
         </div>
 
         <div className="profile-section">
-          <h3>Thay đổi mật khẩu</h3>
+          <h3>Change Password</h3>
           <button 
             className="change-password-button"
             onClick={() => setShowPasswordForm(!showPasswordForm)}
           >
-            <FaKey /> {showPasswordForm ? 'Hủy' : 'Thay đổi mật khẩu'}
+            <FaKey /> {showPasswordForm ? 'Cancel' : 'Change Password'}
           </button>
 
           {showPasswordForm && (
             <form onSubmit={handlePasswordSubmit} className="password-form">
               <div className="form-group">
-                <label>Mật khẩu hiện tại</label>
+                <label>Current Password</label>
                 <input
                   type="password"
                   value={passwordForm.current_password}
@@ -318,7 +318,7 @@ const Profile = () => {
               </div>
 
               <div className="form-group">
-                <label>Mật khẩu mới</label>
+                <label>New Password</label>
                 <input
                   type="password"
                   value={passwordForm.new_password}
@@ -328,7 +328,7 @@ const Profile = () => {
               </div>
 
               <div className="form-group">
-                <label>Xác nhận mật khẩu</label>
+                <label>Confirm New Password</label>
                 <input
                   type="password"
                   value={passwordForm.confirm_password}
@@ -338,7 +338,7 @@ const Profile = () => {
               </div>
 
               <button type="submit" className="submit-button">
-                <FaKey /> Cập nhật mật khẩu
+                <FaKey /> Update Password
               </button>
             </form>
           )}
@@ -349,13 +349,13 @@ const Profile = () => {
             className={`tab-button ${activeTab === 'profile' ? 'active' : ''}`}
             onClick={() => setActiveTab('profile')}
           >
-            <FaUser /> Thông tin cá nhân
+            <FaUser /> Profile
           </button>
           <button 
             className={`tab-button ${activeTab === 'activities' ? 'active' : ''}`}
             onClick={() => setActiveTab('activities')}
           >
-            <FaHistory /> Lịch sử Hoạt động
+            <FaHistory /> Activities
           </button>
         </div>
 

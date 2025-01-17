@@ -239,7 +239,7 @@ const BookDetail = () => {
         <div className="book-detail-image">
           {book.image_url ? (
             <img
-              src={`http://localhost:5000${book.image_url}`}
+              src={`https://khongbugptit.onrender.com${book.image_url}`}
               alt={book.title}
               onError={(e) => {
                 e.target.onerror = null;
@@ -360,14 +360,15 @@ const BookDetail = () => {
         <div className="book-preview-section">
           <h2>Xem trước sách</h2>
           <div className="pdf-viewer">
-            <div className={`pdf-page ${transitionClass}`}>
-              <Document
-                file={`http://localhost:5000${book.preview_pdf}`}
-                onLoadSuccess={onDocumentLoadSuccess}
-                onLoadError={onDocumentLoadError}
-                loading={<div>Đang tải PDF...</div>}
-                options={pdfOptions}
-              >
+          <div className={`pdf-page ${transitionClass}`}>
+  <Document
+    file={`https://khongbugptit.onrender.com${book.preview_pdf}`}
+    onLoadSuccess={onDocumentLoadSuccess}
+    onLoadError={onDocumentLoadError}
+    loading={<div>Đang tải PDF...</div>}
+    options={pdfOptions}
+  />
+</div>
                 {numPages && (
                   <Page 
                     pageNumber={pageNumber} 
