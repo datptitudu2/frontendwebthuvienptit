@@ -59,7 +59,7 @@
 .book-detail-info {
   padding: 1.5rem;
   background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
+ backdrop-filer: blur(10px);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }

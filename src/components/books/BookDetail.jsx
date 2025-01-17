@@ -361,27 +361,23 @@ const BookDetail = () => {
           <h2>Xem trước sách</h2>
           <div className="pdf-viewer">
           <div className={`pdf-page ${transitionClass}`}>
-  <Document
-    file={`https://khongbugptit.onrender.com${book.preview_pdf}`}
-    onLoadSuccess={onDocumentLoadSuccess}
-    onLoadError={onDocumentLoadError}
-    loading={<div>Đang tải PDF...</div>}
-    options={pdfOptions}
-  />
-</div>
-              <div>
-              <Document>
-                {numPages && (
-                  
-                  <Page 
-                    pageNumber={pageNumber} 
-                    width={Math.min(600, window.innerWidth - 32)}
-                    renderTextLayer={false}
-                    renderAnnotationLayer={false}
-                    loading={<div>Đang tải trang...</div>}
-                  />
-                )}
-              </Document>
+          <Document
+      file={`https://khongbugptit.onrender.com${book.preview_pdf}`}
+      onLoadSuccess={onDocumentLoadSuccess}
+      onLoadError={onDocumentLoadError}
+      loading={<div>Đang tải PDF...</div>}
+      options={pdfOptions}
+    >
+      {numPages && (
+        <Page 
+          pageNumber={pageNumber} 
+          width={Math.min(600, window.innerWidth - 32)}
+          renderTextLayer={false}
+          renderAnnotationLayer={false}
+          loading={<div>Đang tải trang...</div>}
+        />
+      )}
+    </Document>
             </div>
             {numPages && (
               <div className="pdf-navigation">
