@@ -125,9 +125,7 @@ const Register = () => {
                   </div>
                 )}
               </div>
-              <div className="requirements">
-                Số điện thoại phải có 10 số và bắt đầu bằng số 0
-              </div>
+              
             </div>
 
             <div className="form-group">

@@ -49,7 +49,7 @@ const Login = () => {
         <div className="login-form">
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label>Tên đăng nhập</label>
+              <label>Email/Số điện thoại </label>
               <div className="input-with-icon">
                 <FaEnvelope className="input-icon" />
                 <input
