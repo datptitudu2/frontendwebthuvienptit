@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Di chuyển sang góc bên phải */
+  justify-content: flex-end;
   background: url('https://sohanews.sohacdn.com/160588918557773824/2022/10/6/107-truong-dai-hoc-16650248353921857634724.jpg') no-repeat center center;
   background-size: cover;
   padding: 20px;
@@ -12,11 +12,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 450px; /* Tăng kích thước form */
-  background: rgba(255, 255, 255, 0.9); /* Nền trắng với độ trong suốt */
-  padding: 30px; /* Tăng padding */
-  border-radius: 10px; /* Tăng border-radius */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm box-shadow */
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .login-header {
@@ -25,20 +25,21 @@
 }
 
 .login-header h1 {
-  font-size: 24px; /* Tăng kích thước font */
+  font-size: 24px;
   color: #333;
   margin-bottom: 10px;
-  font-weight: bold; /* Đậm hơn */
+  font-weight: bold;
 }
 
 .login-header h2 {
-  font-size: 18px; /* Tăng kích thước font */
+  font-size: 18px;
   color: #ff0000;
   font-weight: normal;
 }
 
 .form-group {
   margin-bottom: 20px;
+  position: relative; /* Thêm position relative */
 }
 
 .form-group label {
@@ -61,24 +62,31 @@
   color: #666;
   font-size: 16px;
   z-index: 1;
+  pointer-events: none; /* Thêm pointer-events none */
+  transition: all 0.3s ease; /* Thêm transition */
 }
 
 .form-group input {
   width: 100%;
-  height: 45px; /* Tăng chiều cao input */
-  padding: 10px 40px 10px 35px; /* Tăng padding */
+  height: 45px;
+  padding: 10px 40px 10px 35px;
   border: 1px solid #ddd;
-  border-radius: 5px; /* Tăng border-radius */
-  font-size: 16px; /* Tăng kích thước font */
+  border-radius: 5px;
+  font-size: 16px;
   color: #333;
   background: #fff;
   position: relative;
-  box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước tổng thể */
+  box-sizing: border-box;
 }
 
 .form-group input:focus {
   outline: none;
   border-color: #ff0000;
+}
+
+/* Thêm style mới cho input phone khi focus */
+.form-group input:focus + .input-icon {
+  color: #ff0000;
 }
 
 .toggle-password {
@@ -92,12 +100,12 @@
   cursor: pointer;
   padding: 0;
   font-size: 16px;
-  z-index: 2;  /* Increased z-index */
-  display: flex;  /* Added flex display */
-  align-items: center;  /* Center vertically */
-  justify-content: center;  /* Center horizontally */
-  width: 24px;  /* Fixed width */
-  height: 24px;  /* Fixed height */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
 }
 
 .form-actions {
@@ -119,12 +127,12 @@
   background: #ff0000;
   color: white;
   border: none;
-  border-radius: 5px; /* Tăng border-radius */
-  font-size: 16px; /* Tăng kích thước font */
-  font-weight: bold; /* Đậm hơn */
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   margin-bottom: 15px;
-  transition: background 0.3s ease; /* Thêm transition */
+  transition: background 0.3s ease;
 }
 
 .login-btn:hover {
@@ -138,19 +146,16 @@
   font-size: 12px;
 }
 
-/* Remove left side content for this design */
 .login-left {
   display: none;
 }
 
-/* Adjustments for the remember me checkbox */
 .remember-me {
-  display: none; /* Hidden as per the reference design */
+  display: none;
 }
 
-/* Fix for text overlapping with icons */
 .input-with-icon input {
-  text-indent: 25px; /* This ensures text starts after the icon */
+  text-indent: 25px;
 }
 
 .register-link {
@@ -182,4 +187,3 @@
   font-size: 12px;
   margin-top: 5px;
 }
-
