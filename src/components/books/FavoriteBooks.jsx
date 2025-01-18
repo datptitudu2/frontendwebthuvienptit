@@ -68,7 +68,7 @@ const FavoriteBooks = () => {
               <div className="favorite-book-image">
                 {book.image_url ? (
                   <img
-                    src={`http://localhost:5000${book.image_url}`}
+                    src={`https://khongbugptit.onrender.com${book.image_url}`}
                     alt={book.title}
                     onError={(e) => {
                       e.target.onerror = null;

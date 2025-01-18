@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'https://khongbugptit.onrender.com/api/profile';
+const DEFAULT_AVATAR = 'https://res.cloudinary.com/dgamdk5x9/image/upload/v1/avatars/default-avatar.jpg';
 
 const getAuthHeader = () => {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -13,8 +14,9 @@ const getAuthHeader = () => {
 const getProfile = async () => {
   try {
     const response = await axios.get(API_URL, { headers: getAuthHeader() });
-    if (response.data.success && !response.data.data.avatar_url) {
-      response.data.data.avatar_url = '/uploads/avatars/default-avatar.png';
+    // Kiểm tra và gán avatar mặc định nếu không có avatar_url
+    if (response.data.success && (!response.data.data.avatar_url || response.data.data.avatar_url === '/uploads/avatars/default-avatar.png')) {
+      response.data.data.avatar_url = DEFAULT_AVATAR;
     }
     return response.data;
   } catch (error) {
@@ -28,7 +30,6 @@ const updateProfile = async (profileData) => {
       headers: getAuthHeader()
     });
     
-    // Cập nhật thông tin user trong localStorage nếu thành công
     if (response.data.success) {
       const user = JSON.parse(localStorage.getItem('user'));
       const updatedUser = { ...user, ...profileData };
@@ -61,11 +62,15 @@ const updateAvatar = async (formData) => {
       }
     });
     
-    // Cập nhật user trong localStorage
     if (response.data.success) {
       const user = JSON.parse(localStorage.getItem('user'));
-      user.avatar_url = response.data.data.avatar_url;
-      localStorage.setItem('user', JSON.stringify(user));
+      const avatar_url = response.data.data.avatar_url || DEFAULT_AVATAR;
+      
+      // Cập nhật avatar_url trong localStorage
+      localStorage.setItem('user', JSON.stringify({
+        ...user,
+        avatar_url
+      }));
     }
     
     return response.data;

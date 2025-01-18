@@ -138,41 +138,51 @@ const Profile = () => {
     }
   };
 
-  const getAvatarUrl = (avatarPath) => {
-    if (!avatarPath) return `https://khongbugptit.onrender.com/uploads/avatars/default-avatar.jpg`;
-    if (avatarPath.startsWith('http')) return avatarPath;
-    return `https://khongbugptit.onrender.com${avatarPath}`;
+  const getAvatarUrl = (avatarUrl) => {
+    const DEFAULT_AVATAR = 'https://res.cloudinary.com/dgamdk5x9/image/upload/v1/avatars/default-avatar.jpg';
+    if (!avatarUrl || avatarUrl === '/uploads/avatars/default-avatar.png') {
+      return DEFAULT_AVATAR;
+    }
+    return avatarUrl;
   };
-
+  
   const handleAvatarChange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-
+  
     if (file.size > 2 * 1024 * 1024) {
       toast.error('Ảnh không được quá 2MB');
       return;
     }
-
+  
     if (!file.type.startsWith('image/')) {
       toast.error('Vui lòng chọn file ảnh');
       return;
     }
-
+  
     try {
       const previewUrl = URL.createObjectURL(file);
       setAvatarPreview(previewUrl);
-
+  
       const formData = new FormData();
       formData.append('avatar', file);
       
       const response = await profileService.updateAvatar(formData);
       
       if (response.success) {
+        const newAvatarUrl = response.data.avatar_url;
         setProfile(prev => ({
           ...prev,
-          avatar_url: response.data.avatar_url
+          avatar_url: newAvatarUrl
         }));
         toast.success('Cập nhật avatar thành công');
+        
+        // Cập nhật lại avatar trong localStorage
+        const user = JSON.parse(localStorage.getItem('user'));
+        localStorage.setItem('user', JSON.stringify({
+          ...user,
+          avatar_url: newAvatarUrl
+        }));
       }
     } catch (error) {
       console.error('Avatar update error:', error);
@@ -228,16 +238,14 @@ const Profile = () => {
       <div className="profile-content">
         <div className="avatar-section">
           <div className="avatar-container">
-            <img 
-              src={avatarPreview || getAvatarUrl(profile?.avatar_url)}
-              alt="Avatar" 
-              className="avatar-image"
-              onError={(e) => {
-                if (e.target.src !== `https://khongbugptit.onrender.com/uploads/avatars/default-avatar.jpg`) {
-                  e.target.src = `https://khongbugptit.onrender.com/uploads/avatars/default-avatar.jpg`;
-                }
-              }}
-            />
+          <img 
+  src={avatarPreview || getAvatarUrl(profile?.avatar_url)}
+  alt="Avatar" 
+  className="avatar-image"
+  onError={(e) => {
+    e.target.src = 'https://res.cloudinary.com/dgamdk5x9/image/upload/v1/avatars/default-avatar.jpg';
+  }}
+/>
             <label className="avatar-upload">
               <FaCamera />
               <input

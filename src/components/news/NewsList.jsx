@@ -131,7 +131,7 @@ const NewsList = () => {
             <div key={item.id} className="news-card">
               <div className="news-image">
                 <img 
-                  src={item.image_url ? `http://localhost:5000${item.image_url}` : '/default-news.png'}
+                  src={item.image_url ? `https://khongbugptit.onrender.com${item.image_url}` : '/default-news.png'}
                   alt={item.title}
                   onError={(e) => {
                     e.target.onerror = null;
