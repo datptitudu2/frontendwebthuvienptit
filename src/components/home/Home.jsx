@@ -164,7 +164,7 @@ const Home = () => {
               <div key={book.id} className="book-card">
                 <div className="book-image">
                   <img 
-                    src={book.image_url ? `https://khongbugptit.onrender.com${book.image_url}` : '/default-news.png'}
+                    src={book.image_url ? `https://khongbugptit.onrender.com${book.image_url}` : '/uploads/news/news_image-1737038718866-799210677.png'}
                     alt={book.title}
                     onError={(e) => {
                       e.target.onerror = null;
@@ -207,11 +207,11 @@ const Home = () => {
               <div key={news.id} className="news-card">
                 <div className="news-image">
                   <img 
-                    src={news.image_url ? `https://khongbugptit.onrender.com${news.image_url}` : '/default-news.png'}
+                    src={news.image_url ? `https://khongbugptit.onrender.com${news.image_url}` : '/uploads/news/news_image-1737038718866-799210677.png'}
                     alt={news.title}
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = '/uploads/books/news.png';
+                      e.target.src = '/uploads/news/news_image-1737038718866-799210677.png';
                     }}
                   />
                 </div>
