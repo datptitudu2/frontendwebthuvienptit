@@ -15,7 +15,7 @@ const Home = () => {
 
   const slides = [
     {
-      image: 'https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-6/384230594_695521912608776_3670382646471204016_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=_Ooa4fdfj9cQ7kNvgF4MwcK&_nc_oc=AdjPEoqDrGFChowN94-Xw2GPPRSgWM_7fRvlW0hCjx-y7EiM5UbikH-JRemDWDJEnAU&_nc_zt=23&_nc_ht=scontent.fhan14-1.fna&_nc_gid=A7nDvjFhdETpunuTvyYj8OO&oh=00_AYArR7Rn4XZqMNsHu_WZzhGNqXlZh-ma_ZIBwHwtFXZwBA&oe=678CF438',
+      image: 'https://scontent.fhan15-2.fna.fbcdn.net/v/t1.6435-9/79373637_508257739787775_6440862123928059904_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=8bwN9VNoeN8Q7kNvgEaXBF6&_nc_zt=23&_nc_ht=scontent.fhan15-2.fna&_nc_gid=AnofzeGAlQYfy5uKhJTppGE&oh=00_AYClUuC7EXRXwvKAnLuKr6eTNyR1E3rzOYAXZHc_dYAuUg&oe=67B5DC72',
       title: 'Thư Viện Hiện Đại PTIT',
       description: 'Khám phá kho tàng tri thức với hơn 10,000 đầu sách'
     },
